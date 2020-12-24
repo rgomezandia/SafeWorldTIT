@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\resources",
+    "\\resources\\android",
+    "\\resources\\android\\xml",
+    "\\src",
+    "\\src\\pages",
+    "\\src\\pages\\home",
+    "\\src\\pages\\login",
+    "\\src\\providers",
+    "\\src\\providers\\rest"
+  ],
+  "SelectedNode": "\\src\\pages\\home\\home.ts",
+  "PreviewInSolutionExplorer": false
+}
