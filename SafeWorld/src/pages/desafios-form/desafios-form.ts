@@ -21,6 +21,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class DesafiosFormPage {
 
   codigoDesafioQr:string;
+  foto=false;
+  clickedImagePath:any;
   puntos:number;
   latitud:number;
   longitud:number;
@@ -35,7 +37,7 @@ export class DesafiosFormPage {
     mediaType: this.camera.MediaType.PICTURE,
     cameraDirection:0
   }
-  clickedImagePath:any;
+
 
   //CodDef01, CodDef02, CodDef03.
 
@@ -78,30 +80,38 @@ export class DesafiosFormPage {
 
   registroDesafioUser()
   {
-     this.restProvider.post("InsertarDesafio",{codigo_qr: this.codigoDesafioQr, puntos: this.puntos, latitud: this.latitud, longitud: this.longitud, numero_desafio: this.numero_desafio, id_persona: this.id_persona})
-    .subscribe(
-      (data)=>{this.resultado = data; console.log(data);},
-      (error)=>{this.resultado = error; console.log(error);}
-    )
 
-    let TIME_IN_MS = 2000;
-    setTimeout( () => {
-    console.log(this.resultado.status);
-    console.log(this.resultado.mensaje);
-      if(this.resultado.status == "success")
-      {
-        this.goToast("Desafio Completado")
-        this.navCtrl.push(HomePage)
-          .then(() => {
-            this.navCtrl.setRoot(HomePage);
-            this.navCtrl.popToRoot();
-        });
-      }
-      else
-      {
-        this.goToast("El desafio no pudo ser completado");
-      }
-    }, TIME_IN_MS);
+    if(this.foto==true && this.clickedImagePath!="")
+    {
+
+       this.restProvider.post("InsertarDesafio",{codigo_qr: this.codigoDesafioQr, puntos: this.puntos, latitud: this.latitud, longitud: this.longitud, numero_desafio: this.numero_desafio, id_persona: this.id_persona, base64Foto: this.clickedImagePath})
+      .subscribe(
+        (data)=>{this.resultado = data; console.log(data);},
+        (error)=>{this.resultado = error; console.log(error);}
+      )
+
+      let TIME_IN_MS = 10000;
+      setTimeout( () => {
+      console.log(this.resultado);
+        if(this.resultado.status == "success")
+        {
+          this.goToast("Desafio Completado")
+          this.navCtrl.push(HomePage)
+            .then(() => {
+              this.navCtrl.setRoot(HomePage);
+              this.navCtrl.popToRoot();
+          });
+        }
+          else
+          {
+            this.goToast("El desafio no pudo ser completado");
+          }
+        }, TIME_IN_MS);
+    }
+    else
+    {
+      this.goToast("Debe subir una fotografia");
+    }
   }
 
   goToast(mensaje: string) {
@@ -126,6 +136,7 @@ export class DesafiosFormPage {
       // If it's base64 (DATA_URL):
       //let base64Image = 'data:image/jpeg;base64,' + imageData;
       this.clickedImagePath = 'data:image/jpeg;base64,' + imageData;
+      this.foto=true;
      }, (err) => {
       // Handle error
      });

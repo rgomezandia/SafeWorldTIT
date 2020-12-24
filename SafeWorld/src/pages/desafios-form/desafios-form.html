@@ -18,6 +18,7 @@
      <div *ngIf=" codigoDesafioQr == 'CodDef01'">
         <p>  Desafio 1 </p>
         <button ion-button (click)="clickImage()">Capture Image</button>
+        <br>
         <img src="{{clickedImagePath}}" />
         <button ion-button full (click)="registroDesafioUser()" >Enviar Formulario</button>
      </div>
