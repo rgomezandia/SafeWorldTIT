@@ -13,7 +13,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegistroPage } from '../pages/registro/registro';
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { DesafiosFormPage } from '../pages/desafios-form/desafios-form';
-
+import { Camera } from '@ionic-native/camera';
 
 import { RestProvider } from '../providers/rest/rest';
 import { RestStorage } from '../providers/rest/storage';
@@ -47,6 +47,7 @@ import { RestStorage } from '../providers/rest/storage';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
     QRScanner,
+    Camera,
     RestStorage
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

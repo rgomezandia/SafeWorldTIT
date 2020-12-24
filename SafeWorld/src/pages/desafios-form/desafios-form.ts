@@ -4,6 +4,7 @@ import { RestProvider } from  '../../providers/rest/rest';
 import { RestStorage } from  '../../providers/rest/storage';
 import { HomePage } from '../home/home'
 import { ToastController } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the DesafiosFormPage page.
@@ -27,9 +28,23 @@ export class DesafiosFormPage {
   id_persona:number;
   resultado:any;
 
+  options: CameraOptions = {
+    quality: 100,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    cameraDirection:0
+  }
+  clickedImagePath:any;
+
   //CodDef01, CodDef02, CodDef03.
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public restStorage: RestStorage, private toastCtrl: ToastController) {
+  constructor(private camera: Camera,
+              public navCtrl: NavController,
+              public navParams: NavParams,
+              public restProvider: RestProvider,
+              public restStorage: RestStorage,
+              private toastCtrl: ToastController) {
 
     this.codigoDesafioQr = this.navParams.get('text')
 
@@ -103,5 +118,18 @@ export class DesafiosFormPage {
   toast.present();
   }
 
+
+  clickImage()
+  {
+    this.camera.getPicture(this.options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      //let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.clickedImagePath = 'data:image/jpeg;base64,' + imageData;
+     }, (err) => {
+      // Handle error
+     });
+  }
+  
 
 }

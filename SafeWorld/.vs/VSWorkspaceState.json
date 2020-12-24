@@ -6,8 +6,10 @@
     "\\resources\\android\\xml",
     "\\src",
     "\\src\\pages",
+    "\\src\\pages\\desafios-form",
     "\\src\\pages\\home",
     "\\src\\pages\\login",
+    "\\src\\pages\\registro",
     "\\src\\providers",
     "\\src\\providers\\rest"
   ],
