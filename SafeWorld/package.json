@@ -20,6 +20,7 @@
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
     "@ionic-native/android-permissions": "^4.20.0",
+    "@ionic-native/barcode-scanner": "^4.20.0",
     "@ionic-native/camera": "^4.20.0",
     "@ionic-native/camera-preview": "^4.20.0",
     "@ionic-native/core": "^4.20.0",
@@ -31,7 +32,6 @@
     "@ionic-native/splash-screen": "4.20.0",
     "@ionic-native/status-bar": "4.20.0",
     "@ionic/storage": "2.2.0",
-    "cordova-android": "9.0.0",
     "cordova-common": "^4.0.2",
     "human-signals": "^2.1.0",
     "ionic-angular": "3.9.9",
@@ -64,7 +64,6 @@
     "cordova-plugin-geolocation": "^2.4.3",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
-    "cordova-plugin-qrscanner": "^3.0.1",
     "cordova-plugin-request-location-accuracy": "^2.3.0",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
@@ -72,6 +71,7 @@
     "cordova-windows": "^7.0.1",
     "cordova.plugins.diagnostic": "^6.0.2",
     "jetifier": "^1.6.6",
+    "phonegap-plugin-barcodescanner": "^8.1.0",
     "typescript": "2.6.2"
   },
   "description": "An Ionic project",
@@ -86,7 +86,6 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-geolocation": {},
-      "cordova-plugin-qrscanner": {},
       "cordova.plugins.diagnostic": {
         "ANDROIDX_VERSION": "1.+"
       },
@@ -96,6 +95,9 @@
       "cordova-plugin-camera-preview": {},
       "cordova-plugin-advanced-http": {},
       "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "phonegap-plugin-barcodescanner": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       }
     },

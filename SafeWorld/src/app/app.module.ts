@@ -11,9 +11,9 @@ import { Diagnostic } from '@ionic-native/diagnostic';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { LoginPage } from '../pages/login/login';
 import { RegistroPage } from '../pages/registro/registro';
-import { QRScanner } from '@ionic-native/qr-scanner';
 import { DesafiosFormPage } from '../pages/desafios-form/desafios-form';
 import { Camera } from '@ionic-native/camera';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { RestProvider } from '../providers/rest/rest';
 import { RestStorage } from '../providers/rest/storage';
@@ -46,8 +46,8 @@ import { RestStorage } from '../providers/rest/storage';
     AndroidPermissions,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestProvider,
-    QRScanner,
     Camera,
+    BarcodeScanner,
     RestStorage
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
