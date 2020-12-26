@@ -5,6 +5,7 @@ import { RestStorage } from  '../../providers/rest/storage';
 import { HomePage } from '../home/home'
 import { ToastController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
@@ -15,13 +16,17 @@ export class LoginPage {
   usuario:string;
   contrasena:string;
   persona:any;
+  loading = this.loadingCtrl.create({
+    content: 'Por favor espere...'
+  });
 
   constructor(public events: Events,
               public navCtrl: NavController,
               public navParams: NavParams,
               public restProvider: RestProvider,
               public restStorage: RestStorage,
-              private toastCtrl: ToastController) {}
+              private toastCtrl: ToastController,
+              public loadingCtrl: LoadingController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -35,10 +40,13 @@ export class LoginPage {
       (error)=>{this.persona = error; console.log(error);}
     )
 
-    let TIME_IN_MS = 2000;
+    this.loading.present();
+
+    let TIME_IN_MS = 3000;
     setTimeout( () => {
       if(this.persona.status == "success" && this.persona.mensaje != "NoData")
       {
+        this.loading.dismiss();
         this.goToast("Bienvenido " + this.persona.mensaje[0].nombre)
         this.restStorage.setUser(this.persona.mensaje[0].usuario);
         this.restStorage.setNombre(this.persona.mensaje[0].nombre);

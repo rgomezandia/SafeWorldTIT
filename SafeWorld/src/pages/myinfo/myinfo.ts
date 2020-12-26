@@ -54,7 +54,6 @@ export class MyinfoPage
         for (let valorp of this.informacion){
            this.puntos = this.puntos + valorp.puntos;
         }
-
       }
       else
       {
