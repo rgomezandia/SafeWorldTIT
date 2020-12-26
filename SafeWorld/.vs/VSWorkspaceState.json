@@ -5,12 +5,12 @@
     "\\src",
     "\\src\\app",
     "\\src\\pages",
-    "\\src\\pages\\cod-qr-cam",
+    "\\src\\pages\\desafios-form",
     "\\src\\pages\\home",
     "\\src\\pages\\login",
-    "\\src\\pages\\registro",
-    "\\src\\providers\\rest"
+    "\\src\\pages\\myinfo",
+    "\\src\\pages\\registro"
   ],
-  "SelectedNode": "\\src\\pages\\cod-qr-cam\\cod-qr-cam.ts",
+  "SelectedNode": "\\src\\pages\\myinfo\\myinfo.ts",
   "PreviewInSolutionExplorer": false
 }

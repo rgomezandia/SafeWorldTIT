@@ -14,6 +14,7 @@ import { RegistroPage } from '../pages/registro/registro';
 import { DesafiosFormPage } from '../pages/desafios-form/desafios-form';
 import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { MyinfoPage } from '../pages/myinfo/myinfo';
 
 import { RestProvider } from '../providers/rest/rest';
 import { RestStorage } from '../providers/rest/storage';
@@ -24,6 +25,7 @@ import { RestStorage } from '../providers/rest/storage';
     HomePage,
     LoginPage,
     RegistroPage,
+    MyinfoPage,
     DesafiosFormPage
   ],
   imports: [
@@ -37,6 +39,7 @@ import { RestStorage } from '../providers/rest/storage';
     HomePage,
     LoginPage,
     RegistroPage,
+    MyinfoPage,
     DesafiosFormPage
   ],
   providers: [

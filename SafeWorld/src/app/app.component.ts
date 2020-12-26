@@ -8,6 +8,7 @@ import { Events } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegistroPage } from '../pages/registro/registro';
+import { MyinfoPage } from '../pages/myinfo/myinfo';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +24,8 @@ export class MyApp
   logout = false;
   puntos: any;
   pagein = [
-        { title: 'Home', component: HomePage }
+        { title: 'Home', component: HomePage },
+        { title: 'Mi informacion', component: MyinfoPage }
       ];
   pageout = [
         { title: 'Home', component: HomePage },
