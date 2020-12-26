@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RestProvider } from  '../../providers/rest/rest';
 import { RestStorage } from  '../../providers/rest/storage';
+import { ToastController } from 'ionic-angular';
 
 /**
  * Generated class for the MyinfoPage page.
@@ -16,8 +17,6 @@ import { RestStorage } from  '../../providers/rest/storage';
   templateUrl: 'myinfo.html',
 })
 
-
-
 export class MyinfoPage
 {
 
@@ -25,12 +24,14 @@ export class MyinfoPage
   nombre:string;
   id:any;
   cantidad:number;
-  puntos:any;
+  status:any;
+  puntos=0;
 
   constructor(public navCtrl: NavController,
   public navParams: NavParams,
   public restProvider: RestProvider,
-  public restStorage: RestStorage)
+  public restStorage: RestStorage,
+  private toastCtrl: ToastController)
   {}
 
 
@@ -43,11 +44,43 @@ export class MyinfoPage
 
     this.restProvider.post("ObtenerDesafios",{id_persona: this.id})
     .subscribe(
-      (data)=>{this.informacion = data; console.log(data);},
+      (data:datos)=>{this.informacion = data.mensaje; this.status = data.status; console.log(data);},
       (error)=>{this.informacion = error; console.log(error);})
-    console.log(this.informacion);
-    //this.cantidad = this.informacion.lenght;
-    //this.puntos = this.informacion.reduce((sum, value) => (typeof value.puntos == "number" ? sum + value.puntos : sum), 0);
+
+    let TIME_IN_MS = 2000;
+    setTimeout( () => {
+      if(this.status == "success")
+      {
+        for (let valorp of this.informacion){
+           this.puntos = this.puntos + valorp.puntos;
+        }
+
+      }
+      else
+      {
+        this.goToast("No se pudo calcular el puntaje total");
+      }
+    }, TIME_IN_MS);
   }
 
+
+  goToast(mensaje: string) {
+  let toast = this.toastCtrl.create({
+    message: mensaje,
+    duration: 3000,
+    position: 'bot'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+  }
+
+}
+
+class datos {
+  mensaje: string[];
+  status: string;
 }

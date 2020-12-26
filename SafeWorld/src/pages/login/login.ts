@@ -16,7 +16,12 @@ export class LoginPage {
   contrasena:string;
   persona:any;
 
-  constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public restStorage: RestStorage,  private toastCtrl: ToastController) {}
+  constructor(public events: Events,
+              public navCtrl: NavController,
+              public navParams: NavParams,
+              public restProvider: RestProvider,
+              public restStorage: RestStorage,
+              private toastCtrl: ToastController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -47,7 +52,7 @@ export class LoginPage {
       }
       else
       {
-        this.goToast("El usuario No existe o los datos fueron mal ingresados");
+        this.goToast("El usuario No existe, los datos fueron mal ingresados o no tiene internet");
       }
     }, TIME_IN_MS);
   }

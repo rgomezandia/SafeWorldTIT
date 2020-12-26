@@ -15,6 +15,14 @@ import { DesafiosFormPage } from '../pages/desafios-form/desafios-form';
 import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { MyinfoPage } from '../pages/myinfo/myinfo';
+import { AjustesPage } from '../pages/ajustes/ajustes';
+import { CanjeaPremioPage } from '../pages/canjea-premio/canjea-premio';
+import { ComienzaAReciclarPage } from '../pages/comienza-a-reciclar/comienza-a-reciclar';
+import { EncuentraContenedorPage } from '../pages/encuentra-contenedor/encuentra-contenedor';
+import { InfoResiduosPage } from '../pages/info-residuos/info-residuos';
+import { ListPage } from '../pages/list/list';
+import { TipsParaPlantarPage } from '../pages/tips-para-plantar/tips-para-plantar';
+import { VideosEducativosPage } from '../pages/videos-educativos/videos-educativos';
 
 import { RestProvider } from '../providers/rest/rest';
 import { RestStorage } from '../providers/rest/storage';
@@ -26,6 +34,14 @@ import { RestStorage } from '../providers/rest/storage';
     LoginPage,
     RegistroPage,
     MyinfoPage,
+    AjustesPage,
+    CanjeaPremioPage,
+    ComienzaAReciclarPage,
+    EncuentraContenedorPage,
+    ListPage,
+    TipsParaPlantarPage,
+    InfoResiduosPage,
+    VideosEducativosPage,
     DesafiosFormPage
   ],
   imports: [
@@ -40,6 +56,14 @@ import { RestStorage } from '../providers/rest/storage';
     LoginPage,
     RegistroPage,
     MyinfoPage,
+    AjustesPage,
+    CanjeaPremioPage,
+    ComienzaAReciclarPage,
+    EncuentraContenedorPage,
+    InfoResiduosPage,
+    TipsParaPlantarPage,
+    ListPage,
+    VideosEducativosPage,
     DesafiosFormPage
   ],
   providers: [

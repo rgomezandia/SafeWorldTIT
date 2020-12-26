@@ -15,15 +15,15 @@
 
 <ion-content padding>
   <p>Nombre: {{nombre}}</p>
-  <p>Total de puntos: X</p>
+  <p>Total de puntos: {{puntos}}</p>
   <ion-card>
- <!--   <ion-card-content *ngFor="let item of informacion"> -->
+ <ion-card-content *ngFor="let item of informacion"> 
       <ion-row>
- <!--   <ion-label>Desafio: {{item.numero_desafio}}:</ion-label>
+        <ion-label>Desafio: {{item.numero_desafio}}:</ion-label>
         <ion-label>Puntos: {{item.puntos}}</ion-label>
         <ion-label>Latitud: {{item.latitud}}</ion-label>
-        <ion-label>Longitud: {{item.longitud}}</ion-label> -->
+        <ion-label>Longitud: {{item.longitud}}</ion-label>
       </ion-row>
- <!--   </ion-card-content>-->
+   </ion-card-content>
   </ion-card>
 </ion-content>
